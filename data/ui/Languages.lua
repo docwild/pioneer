@@ -24,7 +24,7 @@ Translate:Add({
 		['Video'] = 'Video',
 		['Sound'] = 'Sound',
 		['Language'] = 'Language',
-		['Control'] = 'Control',
+		['Controls'] = 'Controls',
 		['Mute'] = 'Mute',
 		['VSYNC'] = 'VSYNC',
 		['AA'] = 'AA',

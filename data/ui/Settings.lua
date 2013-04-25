@@ -364,7 +364,7 @@ ui.templates.Settings = function (args)
 	setTabs:AddTab({ id = "Video",        title = t("Video"),     icon = "VideoCamera", template = videoTemplate         })
 	setTabs:AddTab({ id = "Sound",        title = t("Sound"),     icon = "Speaker", template = soundTemplate         })
 	setTabs:AddTab({ id = "Language",        title = t("Language"),     icon = "Globe1", template = languageTemplate         })
-	setTabs:AddTab({ id = "Controls",	title = t("Control"),	icon = "Gamepad", template= keysTemplate })
+	setTabs:AddTab({ id = "Controls",	title = t("Controls"),	icon = "Gamepad", template= keysTemplate })
 	
 	for i = 1,5 do
 		setTabs.tabs[i].iconWidget.onClick:Connect(function() Settings:RemoveFWidget() end)
