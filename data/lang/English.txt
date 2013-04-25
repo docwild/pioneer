@@ -208,14 +208,6 @@ OFF
     Off
 SIGHTS_SOUNDS_SAVES
     Sights, sounds & saving games
-GAME
-    Game
-VIDEO
-    Video
-SOUND
-    Sound
-LANGUAGE
-    Language
 PIONEER
     PIONEER
 SAVE_THE_GAME

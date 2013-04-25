@@ -3,6 +3,7 @@
 
 local ui = Engine.ui
 local l = Lang.GetDictionary()
+local t = Translate:GetTranslator()
 local iniTable = Settings:GetGameConfig()
 local return_to_menu = ui:Button():SetInnerWidget(ui:Label(l.RETURN_TO_MENU))
 return_to_menu.onClick:Connect(function () Settings:SaveGameConfig(iniTable)
@@ -46,7 +47,7 @@ ui.templates.Settings = function (args)
 	
 	local gameTemplate = function()
 			
-		local AAList = {"Off", "x2",  "x4", "x8",  "x16"}
+		local AAList = {t("Off"), "x2",  "x4", "x8",  "x16"}
 		local parseListOut = function(i)
 			if i == 1 then return "0" end
 			if i == 2 then return  "2" end
@@ -94,7 +95,7 @@ ui.templates.Settings = function (args)
 		maxPhysics:SetRange(4,20);
 		maxPhysics:SetScrollPosition(physIni);
 -- 		physIni = physIni * 10
-		maxPhysics.InnerWidget:SetText("Max Physics Ticks (4 - 14): "..physIni)
+		maxPhysics.InnerWidget:SetText(t("Max Physics Ticks (4 - 14): ")..physIni)
 		maxPhysics.OnChange:Connect(function() 
 			local pos = maxPhysics.ScrollPosition
 			pos = math.floor(pos)
@@ -102,23 +103,23 @@ ui.templates.Settings = function (args)
 -- 			if pos < 1 then pos = 1 end
 			iniTable["MaxPhysicsCyclesPerRender"] = ""..pos
 			
-			maxPhysics.InnerWidget:SetText("Max Physics Ticks (4 - 14): "..pos)
+			maxPhysics.InnerWidget:SetText(t("Max Physics Ticks (4 - 14): ")..pos)
 		end)
 		
 		return ui:Grid({0.25,1,0.25,1,0.25},1)
 			:SetCell(1,0, ui:VBox():PackEnd({			
 				ui:Background():SetInnerWidget(
-					ui:VBox():PackEnd({ui:Label("VSYNC"),
+					ui:VBox():PackEnd({ui:Label(t("VSYNC")),
 					vSyncCheckbox,
 					ui:Margin(5)})
 				),
 				ui:Background():SetInnerWidget(
-					ui:VBox():PackEnd({ui:Label("AA"),
+					ui:VBox():PackEnd({ui:Label(t("AA")),
 					AADropdown,
 					ui:Margin(5)})
 				),
 				ui:Background():SetInnerWidget(
-					ui:VBox():PackEnd({ui:Label("Physics"),
+					ui:VBox():PackEnd({ui:Label(t("Physics")),
 					maxPhysics,
 					ui:Margin(5)})
 				),
@@ -267,7 +268,7 @@ ui.templates.Settings = function (args)
 			local plus = ui:Label("+")
 			local minus = ui:Label("-")
 			local mute = ui:CheckBox()
-			local controls = ui:HBox():PackEnd({ui:Background():SetInnerWidget(minus),ui:Background():SetInnerWidget(plus),mute,ui:Label("Mute")})
+			local controls = ui:HBox():PackEnd({ui:Background():SetInnerWidget(minus),ui:Background():SetInnerWidget(plus),mute,ui:Label(t("Mute"))})
 			checkboxHandler(mute, muteKey, false)
 -- 			mute:SetState(iniTable[muteKey])
 
@@ -359,11 +360,11 @@ ui.templates.Settings = function (args)
 	
 	local setTabs = nil
 	setTabs = UI.TabGroup.New()
-	setTabs:AddTab({ id = "Game",        title = l.GAME,     icon = "GameBoy", template = gameTemplate         })
-	setTabs:AddTab({ id = "Video",        title = l.VIDEO,     icon = "VideoCamera", template = videoTemplate         })
-	setTabs:AddTab({ id = "Sound",        title = l.SOUND,     icon = "Speaker", template = soundTemplate         })
-	setTabs:AddTab({ id = "Language",        title = l.LANGUAGE,     icon = "Globe1", template = languageTemplate         })
-	setTabs:AddTab({ id = "Controls",	title = "Control",	icon = "Gamepad", template= keysTemplate })
+	setTabs:AddTab({ id = "Game",        title = t("Game"),     icon = "GameBoy", template = gameTemplate         })
+	setTabs:AddTab({ id = "Video",        title = t("Video"),     icon = "VideoCamera", template = videoTemplate         })
+	setTabs:AddTab({ id = "Sound",        title = t("Sound"),     icon = "Speaker", template = soundTemplate         })
+	setTabs:AddTab({ id = "Language",        title = t("Language"),     icon = "Globe1", template = languageTemplate         })
+	setTabs:AddTab({ id = "Controls",	title = t("Control"),	icon = "Gamepad", template= keysTemplate })
 	
 	for i = 1,5 do
 		setTabs.tabs[i].iconWidget.onClick:Connect(function() Settings:RemoveFWidget() end)

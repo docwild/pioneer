@@ -19,6 +19,19 @@ Translate:Add({
 		-- Load dialog
 		['Select game to load...'] = 'Select game to load...',
 
+		-- Options menu
+		['Game'] = 'Game',
+		['Video'] = 'Video',
+		['Sound'] = 'Sound',
+		['Language'] = 'Language',
+		['Control'] = 'Control',
+		['Mute'] = 'Mute',
+		['VSYNC'] = 'VSYNC',
+		['AA'] = 'AA',
+		['Off'] = 'Off',
+		['Physics'] = 'Physics',
+		['Max Physics Ticks (4 - 14): '] = 'Max Physics Ticks (4 - 14): ',
+
 		-- Equipment
 		['Equipment'] = 'Equipment',
 		['{quantity} Shield Generators'] = '{quantity} Shield Generators',
